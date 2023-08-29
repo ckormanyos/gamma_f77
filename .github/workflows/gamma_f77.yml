@@ -48,7 +48,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        compiler: [ gfortran ]
+        compiler: [ g++ ]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -57,11 +57,11 @@ jobs:
         run: brew install gcc@12
       - name: macos-native
         run: |
-          echo Add the brew-installed-gcc@12 path
-          PATH="/usr/local/opt/gcc@12/bin:$PATH"
+          echo Add the brew-installed-g++@12 path
+          PATH="/usr/local/opt/g++@12/bin:$PATH"
           echo ""
-          echo Query the gfortran version
-          gfortran -v
+          echo Query the g++ version
+          g++ -v
           ${{ matrix.compiler }} -xf77 -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
           ls -la gamma.exe
           ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
