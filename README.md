@@ -14,7 +14,7 @@ the classic `Fortran77` language.
 ## Mathematical Background
 
 The gamma function $\Gamma\left(z\right)$ is the complex-valued extension
-to the well-known integer factorial function.
+of the well-known integer factorial function.
 
 For $\mathbb{Re}\left(z\right) > 0$, $\Gamma(z)$ is defined by
 
@@ -76,10 +76,10 @@ $$x=-4.56\text{.}$$
 
 Integral-valued argument is checked for
 
-$$x=18\text{.}$$
+$$x=18\text{,}$$
 
-in order to compute $\Gamma[18]$, the result of which
-is expected to be equivalent to the integral factorial
+which is used to compute $\Gamma[18]$, the result of which
+is expected to be equal to the integral factorial
 
 $$17 ! = 355,687,428,096,000 \text{.}$$
 
