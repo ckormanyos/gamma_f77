@@ -54,7 +54,7 @@ jobs:
         with:
           fetch-depth: '0'
       - name: update-tools
-        run: sudo apt install gfortran
+        run: brew install gfortran
       - name: macos-native
         run: |
           ${{ matrix.compiler }} -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
