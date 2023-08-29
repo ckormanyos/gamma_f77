@@ -93,7 +93,7 @@ to [godbolt](https://godbolt.org).
 
 The original Fortran77 version of this routine is copyrighted by
 Shanjie Zhang and Jianming Jin. See also the subroutine `GAMMA`
-in Section 3.1.5 pages 49-50 of [1].
+in Section 3.1.5 on pages 49-50 of [1].
 
 The program has been modified for this repository.
   - Use the `gfortran` dialect that is available in `g++`.
