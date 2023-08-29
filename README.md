@@ -4,7 +4,7 @@ gamma_f77
 <p align="center">
     <a href="https://github.com/ckormanyos/gamma_f77/actions">
         <img src="https://github.com/ckormanyos/gamma_f77/actions/workflows/gamma_f77.yml/badge.svg" alt="Build Status"></a>
-    <a href="https://godbolt.org/z/Tq1Ee4oae" alt="godbolt">
+    <a href="https://godbolt.org/z/Y3zdd6zd6" alt="godbolt">
         <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
 </p>
 
@@ -76,7 +76,7 @@ the result of which is expected to be equivalent
 to the factorial $17!$.
 
 The program can also be compiled and executed at this
-[short link](https://godbolt.org/z/Tq1Ee4oae)
+[short link](https://godbolt.org/z/Y3zdd6zd6)
 to [godbolt](https://godbolt.org).
 
 CI runs on Ubuntu and MacOS using `g++`.
