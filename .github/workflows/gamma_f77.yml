@@ -60,6 +60,8 @@ jobs:
           echo ""
           echo Add the brew-installed-gcc@12 path
           PATH="/usr/local/Cellar/gcc/13.1.0/bin:$PATH"
+          cd /usr/local/Cellar/gcc/13.1.0/bin
+          ls -la g++*
           echo ""
           echo Query the g++ version
           ${{ matrix.compiler }} -v
