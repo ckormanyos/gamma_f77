@@ -1,0 +1,41 @@
+##############################################################################
+#  Copyright Christopher Kormanyos 2023.
+#  Distributed under the Boost Software License,
+#  Version 1.0. (See accompanying file LICENSE_1_0.txt
+#  or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+name: gamma_f77
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+jobs:
+  ubuntu-native:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      fail-fast: false
+      matrix:
+        standard: [ legacy ]
+        compiler: [ g++ ]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: '0'
+      - name: ubuntu-native
+        run: |
+          g++ -x f77 -std=legacy -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
+          ls -la gamma.exe
+          ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
+          ./gamma.exe | grep '0.110784755653406415338349971053114E+01'
+          ./gamma.exe | grep '0.271139823924390323650711692085896E+01'
+          ./gamma.exe | grep '0.102754040920152050479188001843206E+02'
+          ./gamma.exe | grep '0.531934282525008207389522379291889E+02'
+          ./gamma.exe | grep '0.350998609824200588801455504140098E+03'
+          ./gamma.exe | grep '0.282509453680418713613816084109635E+04'
+          ./gamma.exe | grep '0.269036719467497675679082571845063E+05'
+          ./gamma.exe | grep '0.296439082102472192334520537379648E+06'
+          ./gamma.exe | grep '0.554521067573633755529159865936434E-01'

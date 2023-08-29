@@ -6,19 +6,47 @@ the classic Fortran77 language.
 
 ## Mathematical Background
 
-The Gamma function $\Gamma\left(z\right)$ is the complex-valued extension
+The gamma function $\Gamma\left(z\right)$ is the complex-valued extension
 to the well-known integer factorial function.
 
-$\Gamma(z)$ is defined by
+For $\mathbb{Re}\left(z\right) > 0$, $\Gamma(z)$ is defined by
 
 $$\Gamma(z)=\int_{0}^{\infty}t^{z-1} e^{t} dt\text{,}$$
-
-for $\mathbb{Re}\left(z\right) > 0$.
 
 $\Gamma(z)$ is valued complex-infinity at the origin and also has
 poles at negative integer values along the real axis.
 
 Reflection is given by
+
+$$ \Gamma(-z)= \frac{\pi}{z\Gamma(z)\sin(\pi z)}\text{.}$$
+
+Reccurence is given by
+
+$$ \Gamma(z+1)= z\Gamma(z)\text{.}$$
+
+## Calculation Method
+
+The real-valued gamma function can be readily calculated using the
+series expansion for its inverse near the origin.
+Large values greater than one use recurrence. For negative
+the positive-valued function is first calculated and
+the value for negative argument is obtaind via reflection.
+
+We consider the series expansion
+
+$$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
+
+In [1], this series expansion is given to 26 terms and these are used
+for the series calculation for double-precision
+(i.e., the Fortran77 data type `REAL*8`).
+
+In this repository, this series calculation has been
+expanded to $48$ terms having decimal precision of $51$ decimal digits
+in order to reach quadruple precision (`REAL*16`).
+
+## Run, Test and CI
+
+TBD
 
 ## Licensing and Original Implementation
 
