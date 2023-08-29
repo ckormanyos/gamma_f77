@@ -25,11 +25,9 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
-      - name: update-tools
-        run: sudo apt install gfortran
       - name: ubuntu-native
         run: |
-          g++ -x f77 -std=legacy -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
+          ${{ matrix.compiler }} -x f77 -std=${{ matrix.standard }} -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
           ls -la gamma.exe
           ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
           ./gamma.exe | grep '0.110784755653406415338349971053114E+01'
@@ -50,15 +48,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        standard: [ legacy ]
-        compiler: [ g++ ]
+        compiler: [ gfortran ]
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
+      - name: update-tools
+        run: sudo apt install gfortran
       - name: macos-native
         run: |
-          gfortran -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
+          ${{ matrix.compiler }} -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
           ls -la gamma.exe
           ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
           ./gamma.exe | grep '0.110784755653406415338349971053114E+01'
