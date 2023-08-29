@@ -1,6 +1,13 @@
 gamma_f77
 ==================
 
+<p align="center">
+    <a href="https://github.com/ckormanyos/gamma_f77/actions">
+        <img src="https://github.com/ckormanyos/gamma_f77/actions/workflows/gamma_f77.yml/badge.svg" alt="Build Status"></a>
+    <a href="https://godbolt.org/z/Tq1Ee4oae" alt="godbolt">
+        <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
+</p>
+
 gamma_f77 implements the real-valued Gamma function in quadruple-precision using
 the classic Fortran77 language.
 
@@ -13,8 +20,8 @@ For $\mathbb{Re}\left(z\right) > 0$, $\Gamma(z)$ is defined by
 
 $$\Gamma(z)=\int_{0}^{\infty}t^{z-1} e^{t} dt\text{,}$$
 
-$\Gamma(z)$ is valued complex-infinity at the origin and also has
-poles at negative integer values along the real axis.
+$\Gamma(z)$ has a value of complex-infinity at the origin and also
+has poles at integer values along the negative real axis.
 
 Reflection is given by
 
@@ -26,13 +33,15 @@ $$ \Gamma(z+1)= z\Gamma(z)\text{.}$$
 
 ## Calculation Method
 
-The real-valued gamma function can be readily calculated using the
-series expansion for its inverse near the origin.
-Large values greater than one use recurrence. For negative
-the positive-valued function is first calculated and
-the value for negative argument is obtaind via reflection.
+The real-valued gamma function, $\Gamma\left(x\right)$
+can be readily calculated using a series expansion
+for its inverse near the origin.
+Large arguments valued greater than one use recurrence.
+For negative argument, the function value for the corresponding
+positive-valued argument is first calculated and the value
+for negative argument is obtaind via reflection.
 
-We consider the series expansion
+Consider the series expansion
 
 $$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 
@@ -40,27 +49,42 @@ In [1], this series expansion is given to 26 terms and these are used
 for the series calculation for double-precision
 (i.e., the Fortran77 data type `REAL*8`).
 
-In this repository, this series calculation has been
+In this repository, the series calculation has been
 expanded to $48$ terms having decimal precision of $51$ decimal digits
 in order to reach quadruple precision (`REAL*16`).
 
+For a list of coefficients, see the table-variable `G` in the
+source code [gamma.f](./gamma.f).
+
+See also
+[Wolfram Alpha(R)](https://www.wolframalpha.com/input?i=Series%5B1%2FGamma%5Bz%5D%2C+%7Bz%2C+0%2C+3%7D%5D)
+for brief mathematical insight into the fascinating
+series expansion of the inverse gamma function near the origin.
+
 ## Run, Test and CI
 
-TBD
+The test run computes $9$ gamma values for positive argument at
+$ x = 1.11, 2.21, 3.31, {\ldots} 9.91$.
+Negative reflection is tested at $x=-4.56$.
+
+The program can also be compiled and executed at this
+[short link](https://godbolt.org/z/Tq1Ee4oae)
+to [godbolt](https://godbolt.org).
+
+CI runs on Ubuntu using `g++`. Here the correct numerical results
+are verified on OS-level to full $33$ decimal digit precision
+using the program `grep`.
 
 ## Licensing and Original Implementation
 
-The original FORTRAN77 version of this routine is copyrighted by 
-Shanjie Zhang and Jianming Jin.  However, they give permission to 
-incorporate this routine into a user program provided that the
-copyright is acknowledged.
-
-See also the subroutine `GAMMA` in Section 3.1.5 pages 49-50 of [1].
+The original Fortran77 version of this routine is copyrighted by
+Shanjie Zhang and Jianming Jin. See also the subroutine `GAMMA`
+in Section 3.1.5 pages 49-50 of [1].
 
 The program has been modified for this repository.
-  - Use the `gfortran` dialect.
-  - Adapt argument/result to quadruple-precision using the `REAL*16` data type.
-  - Coefficients to $51$ decimal digits precision acquired from computer algebra system.
+  - Use the `gfortran` dialect that is available in `g++`.
+  - Adapt argument/calculation/result to quadruple-precision using the `REAL*16` data type.
+  - Expand the small-argument series expansion to $48$ coefficients having $51$ decimal digit precision. These have been acquired from a computer algebra system.
 
 ## References
 
