@@ -48,11 +48,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        compiler: [ g++ ]
+        compiler: [ g++-12 ]
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
+      - name: update-tools
+        run: sudo apt install gcc-12 g++-12
       - name: macos-native
         run: |
           ${{ matrix.compiler }} -xf77 -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
