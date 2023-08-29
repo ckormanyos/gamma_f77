@@ -6,15 +6,19 @@ the classic Fortran77 language.
 
 ## Mathematical Background
 
-The Gamma function is the real-valued (and complex-valued) extension
+The Gamma function $\Gamma\left(z\right)$ is the complex-valued extension
 to the well-known integer factorial function.
 
-The Gamma function of complex argument $\Gamma(z)$ is defined by
+$\Gamma(z)$ is defined by
 
-$$ $$
+$$\Gamma(z)=\int_{0}^{\infty}t^{z-1} e^{t} dt\text{,}$$
 
-In the complex plane the value of $\Gamma(z)$ is complex-infinity at the origin.
-It also and has poles at negative integer values along the negative real axis.
+for $\mathbb{Re}\left(z\right) > 0$.
+
+$\Gamma(z)$ is valued complex-infinity at the origin and also has
+poles at negative integer values along the real axis.
+
+Reflection is given by
 
 ## Licensing and Original Implementation
 
