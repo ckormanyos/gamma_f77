@@ -9,12 +9,12 @@ gamma_f77
 </p>
 
 gamma_f77 implements the real-valued Gamma function in quadruple-precision using
-the classic Fortran77 language.
+the classic `Fortran77` language.
 
 ## Mathematical Background
 
 The gamma function $\Gamma\left(z\right)$ is the complex-valued extension
-to the well-known integer factorial function.
+of the well-known integer factorial function.
 
 For $\mathbb{Re}\left(z\right) > 0$, $\Gamma(z)$ is defined by
 
@@ -41,24 +41,27 @@ For negative argument, the function value for the corresponding
 positive-valued argument is first calculated and the value
 for negative argument is obtaind via reflection.
 
-Consider the series expansion
+Consider the series expansion of the inverse of the gamma function
+near the origin
 
 $$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 
 In [1], this series expansion is given to 26 terms and these are used
 for the series calculation for double-precision
-(i.e., the Fortran77 data type `REAL*8`).
+(i.e., the `Fortran77` data type `REAL*8`). Further information on this
+coefficient expansion can be found in Sect. 6.1.34 of [2],
+in Sect. 5.7.1 of [3] and in additional references therein.
 
 In this repository, the series calculation has been
-expanded to $48$ terms having decimal precision of $51$ decimal digits
-in order to reach quadruple precision (`REAL*16`).
-For a list of coefficients, see the table-variable `G` in the
-source code [gamma.f](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
+expanded to $48$ terms having precision of $51$ decimal digits.
+With this coefficient list, it is possible to reach the quadruple precision
+of `Fortran77`'s `REAL*16`. See also the table `G` in the
+[source code](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
 
 See also
 [Wolfram Alpha(R)](https://www.wolframalpha.com/input?i=Series%5B1%2FGamma%5Bz%5D%2C+%7Bz%2C+0%2C+3%7D%5D)
 for brief mathematical insight into the fascinating
-series expansion of the inverse gamma function near the origin.
+series expansion of the inverse of the gamma function near the origin.
 
 ## Run, Test and CI
 
@@ -73,10 +76,10 @@ $$x=-4.56\text{.}$$
 
 Integral-valued argument is checked for
 
-$$x=18\text{.}$$
+$$x=18\text{,}$$
 
-in order to compute $\Gamma[18]$, the result of which
-is expected to be equivalent to the integral factorial
+which is used to compute $\Gamma[18]$, the result of which
+is expected to be equal to the integral factorial
 
 $$17 ! = 355,687,428,096,000 \text{.}$$
 
@@ -91,9 +94,9 @@ to [godbolt](https://godbolt.org).
 
 ## Licensing and Original Implementation
 
-The original Fortran77 version of this routine is copyrighted by
+The original `Fortran77` version of this routine is copyrighted by
 Shanjie Zhang and Jianming Jin. See also the subroutine `GAMMA`
-in Section 3.1.5 on pages 49-50 of [1].
+in Sect. 3.1.5 on pages 49-50 of [1].
 
 The program has been modified for this repository.
   - Use the `gfortran` dialect that is available in `g++`.
@@ -104,3 +107,10 @@ The program has been modified for this repository.
 
 [1] Shanjie Zhang and Jianming Jin, _Computation_ _of_ _Special_ _Functions_,
 Wiley, 1996, ISBN: 0-471-11963-6, LC: QA351.C45
+
+[2] M. Abramowitz and I.A. Stegun, _Handbook_ _of_ _Mathematical_ _Functions_,
+9th Printing, Dover Publications, 1970.
+
+[3] F.W.J. Olver, D.W. Lozier, R.F. Boisvert and C.W. Clark,
+_NIST_ _Handbook_ _of_ _Mathematical_ _Functions_,
+Cambridge University Press, 2010.
