@@ -58,10 +58,9 @@ jobs:
       - name: macos-native
         run: |
           echo ""
-          echo Add the brew-installed-gcc@12 path
+          echo Add brew-installed-g++ path and sym-link
           PATH="/usr/local/Cellar/gcc/13.1.0/bin:$PATH"
-          cd /usr/local/Cellar/gcc/13.1.0/bin
-          ls -la g++*
+          ln -s /usr/local/Cellar/gcc/13.1.0/bin/g++-13 g++
           echo ""
           echo Query the g++ version
           ${{ matrix.compiler }} -v
