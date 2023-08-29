@@ -48,13 +48,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        compiler: [ gfortran ]
+        compiler: [ g++ ]
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
-      - name: update-tools
-        run: brew install gfortran
       - name: macos-native
         run: |
           ${{ matrix.compiler }} -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
