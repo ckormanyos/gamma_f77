@@ -48,20 +48,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        compiler: [ g++-12 ]
+        compiler: [ g++ ]
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - name: update-tools
-        run: brew install gcc@12
+        run: brew install gcc
       - name: macos-native
         run: |
           echo ""
           echo Query the g++ version
           ${{ matrix.compiler }} -v
           echo ""
-          ${{ matrix.compiler }} -xf77 -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
+          ${{ matrix.compiler }} -x f77 -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
           ls -la gamma.exe
           ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
           ./gamma.exe | grep '0.110784755653406415338349971053114E+01'
