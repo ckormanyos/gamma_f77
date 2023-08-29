@@ -54,7 +54,7 @@ jobs:
         with:
           fetch-depth: '0'
       - name: update-tools
-        run: brew install g++@12
+        run: brew install gcc@12
       - name: macos-native
         run: |
           echo ""
