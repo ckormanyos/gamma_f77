@@ -22,6 +22,9 @@ C
 
 C     N[Series[1/Gamma[z], {z, 0, 48}], 51]
 C     Table[SeriesCoefficient[%, n], {n, 48}]
+C     ... and the Series generation takes several minutes.
+C     Don't concatenate these (potentially nested) operations,
+C     as that did not end at all, at least not for me.
 
       DATA G/+1.0Q+00,
      &       +5.77215664901532860606512090082402431042159335939924Q-01,
@@ -140,6 +143,8 @@ C     N[Factorial[17], 33]
 
       END
 
+C     Program Output:
+C
 C     0.947395504039301942134227647281424E+00
 C     0.110784755653406415338349971053114E+01
 C     0.271139823924390323650711692085896E+01
