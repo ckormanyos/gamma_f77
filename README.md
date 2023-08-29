@@ -52,7 +52,6 @@ for the series calculation for double-precision
 In this repository, the series calculation has been
 expanded to $48$ terms having decimal precision of $51$ decimal digits
 in order to reach quadruple precision (`REAL*16`).
-
 For a list of coefficients, see the table-variable `G` in the
 source code [gamma.f](./gamma.f).
 
@@ -63,15 +62,25 @@ series expansion of the inverse gamma function near the origin.
 
 ## Run, Test and CI
 
-The test run computes $9$ gamma values for positive argument at
-$ x = 1.11, 2.21, 3.31, {\ldots} 9.91$.
-Negative reflection is tested at $x=-4.56$.
+The test run computes $9$ gamma values
+for positive arguments at
+
+$$x = 1.11, 2.21, 3.31, {\ldots} 9.91\text{.}$$
+
+Negative reflection is tested at
+
+$$x=-4.56\text{.}$$
+
+Integral-valued argument is checked for $\Gamma[18]$,
+the result of which is expected to be equivalent
+to the factorial $17!$.
 
 The program can also be compiled and executed at this
 [short link](https://godbolt.org/z/Tq1Ee4oae)
 to [godbolt](https://godbolt.org).
 
-CI runs on Ubuntu using `g++`. Here the correct numerical results
+CI runs on Ubuntu and MacOS using `g++`.
+On these runners, the correct numerical results
 are verified on OS-level to full $33$ decimal digit precision
 using the program `grep`.
 
