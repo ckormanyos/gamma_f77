@@ -9,7 +9,7 @@ gamma_f77
 </p>
 
 gamma_f77 implements the real-valued Gamma function in quadruple-precision using
-the classic Fortran77 language.
+the classic `Fortran77` language.
 
 ## Mathematical Background
 
@@ -48,15 +48,15 @@ $$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 
 In [1], this series expansion is given to 26 terms and these are used
 for the series calculation for double-precision
-(i.e., the Fortran77 data type `REAL*8`). Further information on this
+(i.e., the `Fortran77` data type `REAL*8`). Further information on this
 coefficient expansion can be found in Sect. 6.1.34 of [2],
 in Sect. 5.7.1 of [3] and in additional references therein.
 
 In this repository, the series calculation has been
-expanded to $48$ terms having decimal precision of $51$ decimal digits
-in order to reach quadruple precision (`REAL*16`).
-For a list of coefficients, see the table-variable `G` in the
-source code [gamma.f](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
+expanded to $48$ terms having precision of $51$ decimal digits.
+With this coefficient list, it is possible to reach the quadruple precision
+of `Fortran77`'s `REAL*16`. See also the table `G` in the
+[source code](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
 
 See also
 [Wolfram Alpha(R)](https://www.wolframalpha.com/input?i=Series%5B1%2FGamma%5Bz%5D%2C+%7Bz%2C+0%2C+3%7D%5D)
@@ -94,7 +94,7 @@ to [godbolt](https://godbolt.org).
 
 ## Licensing and Original Implementation
 
-The original Fortran77 version of this routine is copyrighted by
+The original `Fortran77` version of this routine is copyrighted by
 Shanjie Zhang and Jianming Jin. See also the subroutine `GAMMA`
 in Sect. 3.1.5 on pages 49-50 of [1].
 
