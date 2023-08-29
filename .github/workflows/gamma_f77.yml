@@ -48,23 +48,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        compiler: [ g++ ]
+        compiler: [ g++-13 ]
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: '0'
       - name: update-tools
         run: brew reinstall gcc
-      - name: macos-native
+      - name: brew-installed-gcc-path
         run: |
-          echo ""
-          echo Add brew-installed-g++ path and sym-link
           PATH="/usr/local/Cellar/gcc/13.1.0/bin:$PATH"
-          ln -s /usr/local/Cellar/gcc/13.1.0/bin/g++-13 g++
-          echo ""
+      - name: g++-version
+        run: |
           echo Query the g++ version
           ${{ matrix.compiler }} -v
-          echo ""
+      - name: macos-native
+        run: |
           ${{ matrix.compiler }} -x f77 -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
           ls -la gamma.exe
           ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
