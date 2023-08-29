@@ -53,7 +53,7 @@ In this repository, the series calculation has been
 expanded to $48$ terms having decimal precision of $51$ decimal digits
 in order to reach quadruple precision (`REAL*16`).
 For a list of coefficients, see the table-variable `G` in the
-source code [gamma.f](./gamma.f).
+source code [gamma.f](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
 
 See also
 [Wolfram Alpha(R)](https://www.wolframalpha.com/input?i=Series%5B1%2FGamma%5Bz%5D%2C+%7Bz%2C+0%2C+3%7D%5D)
@@ -71,18 +71,23 @@ Negative reflection is tested at
 
 $$x=-4.56\text{.}$$
 
-Integral-valued argument is checked for $\Gamma[18]$,
-the result of which is expected to be equivalent
-to the factorial $17!$.
+Integral-valued argument is checked for
 
-The program can also be compiled and executed at this
-[short link](https://godbolt.org/z/Y3zdd6zd6)
-to [godbolt](https://godbolt.org).
+$$x=18\text{.}$$
+
+in order to compute $\Gamma[18]$, the result of which
+is expected to be equivalent to the integral factorial
+
+$$17 ! = 355,687,428,096,000 \text{.}$$
 
 CI runs on Ubuntu and MacOS using `g++`.
 On these runners, the correct numerical results
 are verified on OS-level to full $33$ decimal digit precision
 using the program `grep`.
+
+The program can also be compiled and executed at this
+[short link](https://godbolt.org/z/Y3zdd6zd6)
+to [godbolt](https://godbolt.org).
 
 ## Licensing and Original Implementation
 
