@@ -41,13 +41,16 @@ For negative argument, the function value for the corresponding
 positive-valued argument is first calculated and the value
 for negative argument is obtaind via reflection.
 
-Consider the series expansion
+Consider the series expansion of the inverse of the gamma function
+near the origin
 
 $$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 
 In [1], this series expansion is given to 26 terms and these are used
 for the series calculation for double-precision
-(i.e., the Fortran77 data type `REAL*8`).
+(i.e., the Fortran77 data type `REAL*8`). Further information on this
+coefficient expansion can be found in Sect. 6.1.34 of [2],
+in Sect. 5.7.1 of [3] and in additional references therein.
 
 In this repository, the series calculation has been
 expanded to $48$ terms having decimal precision of $51$ decimal digits
@@ -58,7 +61,7 @@ source code [gamma.f](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f)
 See also
 [Wolfram Alpha(R)](https://www.wolframalpha.com/input?i=Series%5B1%2FGamma%5Bz%5D%2C+%7Bz%2C+0%2C+3%7D%5D)
 for brief mathematical insight into the fascinating
-series expansion of the inverse gamma function near the origin.
+series expansion of the inverse of the gamma function near the origin.
 
 ## Run, Test and CI
 
@@ -93,7 +96,7 @@ to [godbolt](https://godbolt.org).
 
 The original Fortran77 version of this routine is copyrighted by
 Shanjie Zhang and Jianming Jin. See also the subroutine `GAMMA`
-in Section 3.1.5 on pages 49-50 of [1].
+in Sect. 3.1.5 on pages 49-50 of [1].
 
 The program has been modified for this repository.
   - Use the `gfortran` dialect that is available in `g++`.
@@ -104,3 +107,10 @@ The program has been modified for this repository.
 
 [1] Shanjie Zhang and Jianming Jin, _Computation_ _of_ _Special_ _Functions_,
 Wiley, 1996, ISBN: 0-471-11963-6, LC: QA351.C45
+
+[2] M. Abramowitz and I.A. Stegun, _Handbook_ _of_ _Mathematical_ _Functions_,
+9th Printing, Dover Publications, 1970.
+
+[3] F.W.J. Olver, D.W. Lozier, R.F. Boisvert and C.W. Clark,
+_NIST_ _Handbook_ _of_ _Mathematical_ _Functions_,
+Cambridge University Press, 2010.
