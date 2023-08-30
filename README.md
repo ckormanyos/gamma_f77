@@ -64,6 +64,8 @@ See also
 for brief mathematical insight into the fascinating
 series expansion of the reciprocal of the gamma function near the origin.
 
+The implementation uses the `gfortran` dialect that is available in `g++`.
+
 ## Run, Test and CI
 
 The test run computes $9$ gamma values
@@ -92,18 +94,10 @@ The program can also be compiled and executed at this
 [short link](https://godbolt.org/z/Y3zdd6zd6)
 to [godbolt](https://godbolt.org).
 
-## Licensing and Original Implementation
-
-The original `Fortran77` version of this routine is copyrighted by
-Shanjie Zhang and Jianming Jin. See also the subroutine `GAMMA`
-in Sect. 3.1.5 on pages 49-50 of [1].
-
-The program has been modified for this repository.
-  - Use the `gfortran` dialect that is available in `g++`.
-  - Adapt argument/calculation/result to quadruple-precision using the `REAL*16` data type.
-  - Expand the small-argument series expansion to $48$ coefficients having $51$ decimal digit precision. These have been acquired from a computer algebra system.
-
 ## References
+
+A similar `Fortran77` program based on double-precision arithmetic (`REAL*8`)
+can be found in the subroutine `GAMMA` in Sect. 3.1.5 on pages 49-50 of [1].
 
 [1] Shanjie Zhang and Jianming Jin, _Computation_ _of_ _Special_ _Functions_,
 Wiley, 1996, ISBN: 0-471-11963-6, LC: QA351.C45
