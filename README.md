@@ -35,13 +35,13 @@ $$ \Gamma(z+1)= z\Gamma(z)\text{.}$$
 
 The real-valued gamma function, $\Gamma\left(x\right)$
 can be readily calculated using a series expansion
-for its inverse near the origin.
+for its reciprocal near the origin.
 Large arguments valued greater than one use recurrence.
 For negative argument, the function value for the corresponding
 positive-valued argument is first calculated and the value
 for negative argument is obtaind via reflection.
 
-Consider the series expansion of the inverse of the gamma function
+Consider the series expansion of the reciprocal of the gamma function
 near the origin
 
 $$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
@@ -55,13 +55,14 @@ in Sect. 5.7.1 of [3] and in additional references therein.
 In this repository, the series calculation has been
 expanded to $48$ terms having precision of $51$ decimal digits.
 With this coefficient list, it is possible to reach the quadruple precision
-of `Fortran77`'s `REAL*16`. See also the table `G` in the
+of `Fortran77`'s `REAL*16`. These higher-precision coefficients are listed
+in the table `G` in the
 [source code](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
 
 See also
 [Wolfram Alpha(R)](https://www.wolframalpha.com/input?i=Series%5B1%2FGamma%5Bz%5D%2C+%7Bz%2C+0%2C+3%7D%5D)
 for brief mathematical insight into the fascinating
-series expansion of the inverse of the gamma function near the origin.
+series expansion of the reciprocal of the gamma function near the origin.
 
 ## Run, Test and CI
 
@@ -84,9 +85,8 @@ is expected to be equal to the integral factorial
 $$17 ! = 355,687,428,096,000 \text{.}$$
 
 CI runs on Ubuntu and MacOS using `g++`.
-On these runners, the correct numerical results
-are verified on OS-level to full $33$ decimal digit precision
-using the program `grep`.
+Correct numerical results are verified on the OS-level
+up to the full $33$ decimal digit precision using `grep`.
 
 The program can also be compiled and executed at this
 [short link](https://godbolt.org/z/Y3zdd6zd6)
