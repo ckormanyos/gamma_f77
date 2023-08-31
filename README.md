@@ -46,17 +46,21 @@ near the origin
 
 $$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 
-In [1], this series expansion is given to 26 terms and these are used
-for the series calculation for double-precision
-(i.e., the `Fortran77` data type `REAL*8`). Further information on this
-coefficient expansion can be found in Sect. 6.1.34 of [2],
-in Sect. 5.7.1 of [3] and in additional references therein.
+In the subroutine `GAMMA` in Sect. 3.1.5 on pages 49-50 of [1],
+this series expansion is given to $26$ terms. These are used
+in a series calculation of $\Gamma\left(x\right)$ for double-precision,
+real-valued $x$ using the `Fortran77` data type `REAL*8`.
+Further information on this coefficient expansion can be found
+in Sect. 6.1.34 of [2], in Sect. 5.7.1 of [3]
+and in additional references therein.
 
-In this repository, the series calculation has been
-expanded to $48$ terms having precision of $51$ decimal digits.
-With this coefficient list, it is possible to reach the quadruple precision
-of `Fortran77`'s `REAL*16`. These higher-precision coefficients are listed
-in the table `G` in the
+## Quadruple-Precision Implementation
+
+In this repository, the series calculation mentioned above has been
+expanded (via computer algebra) to $48$ terms having precision
+of $51$ decimal digits. With this coefficient list,
+it is possible to reach the quadruple-precision of `Fortran77`'s `REAL*16`.
+These higher-precision coefficients are listed in the table `G` in the
 [source code](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
 
 See also
@@ -66,9 +70,9 @@ series expansion of the reciprocal of the gamma function near the origin.
 
 The implementation uses the `gfortran` dialect that is available in `g++`.
 
-## Run, Test and CI
+## Test-Run and CI
 
-The test run computes $9$ gamma values
+The test-run computes $9$ gamma values
 for positive arguments at
 
 $$x = 1.11, 2.21, 3.31, {\ldots} 9.91\text{.}$$
@@ -95,9 +99,6 @@ The program can also be compiled and executed at this
 to [godbolt](https://godbolt.org).
 
 ## References
-
-A similar `Fortran77` program based on double-precision arithmetic (`REAL*8`)
-can be found in the subroutine `GAMMA` in Sect. 3.1.5 on pages 49-50 of [1].
 
 [1] Shanjie Zhang and Jianming Jin, _Computation_ _of_ _Special_ _Functions_,
 Wiley, 1996, ISBN: 0-471-11963-6, LC: QA351.C45
