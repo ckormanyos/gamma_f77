@@ -47,26 +47,28 @@ near the origin
 $$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 
 In the subroutine `GAMMA` in Sect. 3.1.5 on pages 49-50 of [1],
-this series expansion is given to $26$ terms. These are used
+the coefficients $a_{k}$ are given to $26$ terms. These are used
 in a series calculation of $\Gamma\left(x\right)$ for double-precision,
 real-valued $x$ using the `Fortran77` data type `REAL*8`.
 Further information on this coefficient expansion can be found
 in Sect. 6.1.34 of [2], in Sect. 5.7.1 of [3]
 and in additional references therein.
 
-## Quadruple-Precision Implementation
-
-In this repository, the series calculation mentioned above has been
-expanded (via computer algebra) to $48$ terms having precision
-of $51$ decimal digits. With this coefficient list,
-it is possible to reach the quadruple-precision of `Fortran77`'s `REAL*16`.
-These higher-precision coefficients are listed in the table `G` in the
-[source code](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
-
 See also
 [Wolfram Alpha(R)](https://www.wolframalpha.com/input?i=Series%5B1%2FGamma%5Bz%5D%2C+%7Bz%2C+0%2C+3%7D%5D)
 for brief mathematical insight into the fascinating
 series expansion of the reciprocal of the gamma function near the origin.
+
+## Quadruple-Precision Implementation
+
+In this repository, the series calculation mentioned above has been
+extended to quadruple-precision.
+
+The coefficients $a_{k}$ have been expanded (via computer algebra)
+to $48$ terms having precision of $51$ decimal digits. With this coefficient list,
+it is possible to reach the quadruple-precision of `Fortran77`'s `REAL*16`.
+These higher-precision coefficients are listed in the table `G` in the
+[source code](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
 
 The implementation uses the `gfortran` dialect that is available in `g++`.
 
