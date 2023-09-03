@@ -48,8 +48,8 @@ $$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 
 In the subroutine `GAMMA` in Sect. 3.1.5 on pages 49-50 of [1],
 the coefficients $a_{k}$ are given to $26$ terms. These are used
-in a series calculation of $\Gamma\left(x\right)$ for double-precision,
-real-valued $x$ using the `Fortran77` data type `REAL*8`.
+in a series calculation of $\Gamma\left(x\right)$ for real-valued $x$
+using `Fortran77`'s double-precision data type `REAL*8`.
 Further information on this coefficient expansion can be found
 in Sect. 6.1.34 of [2], in Sect. 5.7.1 of [3]
 and in additional references therein.
@@ -65,17 +65,17 @@ In this repository, the series calculation mentioned above has been
 extended to quadruple-precision.
 
 The coefficients $a_{k}$ have been expanded (via computer algebra)
-to $48$ terms having precision of $51$ decimal digits. With this coefficient list,
-it is possible to reach the quadruple-precision of `Fortran77`'s `REAL*16`.
-These higher-precision coefficients are listed in the table `G` in the
+to $48$ terms having $51$ decimal digits of precision. With this coefficient list,
+it is possible to reach the quadruple-precision of `Fortran77`'s data type `REAL*16`.
+These higher-precision coefficients can be found in the table `G` in the
 [source code](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
 
 The implementation uses the `gfortran` dialect that is available in `g++`.
 
 ## Test-Run and CI
 
-The test-run computes $9$ gamma values
-for positive arguments at
+The test-run computes $9$ gamma values $\Gamma\left(x\right)$
+for positive, real-valued arguments at
 
 $$x = 1.11, 2.21, 3.31, {\ldots} 9.91\text{.}$$
 
@@ -94,7 +94,8 @@ $$17 ! = 355,687,428,096,000 \text{.}$$
 
 CI runs on Ubuntu and MacOS using `g++`.
 Correct numerical results are verified on the OS-level
-up to the full $33$ decimal digit precision using `grep`.
+up to the $33$ decimal digit precision using the built-in
+program `grep`.
 
 The program can also be compiled and executed at this
 [short link](https://godbolt.org/z/Y3zdd6zd6)
