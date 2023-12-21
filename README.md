@@ -4,6 +4,8 @@ gamma_f77
 <p align="center">
     <a href="https://github.com/ckormanyos/gamma_f77/actions">
         <img src="https://github.com/ckormanyos/gamma_f77/actions/workflows/gamma_f77.yml/badge.svg" alt="Build Status"></a>
+    <a href="https://github.com/ckormanyos/gamma_f77/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-BSL%201.0-blue.svg" alt="Boost Software License 1.0"></a>
     <a href="https://godbolt.org/z/Y3zdd6zd6" alt="godbolt">
         <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
 </p>
