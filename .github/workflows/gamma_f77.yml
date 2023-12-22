@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        standard: [ legacy ]
+        standard: [ legacy, f2018 ]
         compiler: [ g++ ]
     steps:
       - uses: actions/checkout@v3

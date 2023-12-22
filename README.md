@@ -103,6 +103,15 @@ The program can also be compiled and executed at this
 [short link](https://godbolt.org/z/4oPff3EEh)
 to [godbolt](https://godbolt.org).
 
+## Standards Conformance Time-Span
+
+The program (with many thanks for contributions
+from [@Beliavsky](https://github.com/ckormanyos/gamma_f77/issues/13))
+compiles with language standards `legacy` (i.e., `Fortran77`) as well as `f2018`.
+
+This is a standards-conformance time-span of (a remarkable)
+more than 40 years (with hopefully more to come).
+
 ## References
 
 [1] Shanjie Zhang and Jianming Jin, _Computation_ _of_ _Special_ _Functions_,
