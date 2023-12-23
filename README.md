@@ -6,7 +6,7 @@ gamma_f77
         <img src="https://github.com/ckormanyos/gamma_f77/actions/workflows/gamma_f77.yml/badge.svg" alt="Build Status"></a>
     <a href="https://github.com/ckormanyos/gamma_f77/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-BSL%201.0-blue.svg" alt="Boost Software License 1.0"></a>
-    <a href="https://godbolt.org/z/E6ad1aT85" alt="godbolt">
+    <a href="https://godbolt.org/z/3PsdxPhWY" alt="godbolt">
         <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
 </p>
 
@@ -87,12 +87,12 @@ $$x=-4.56\text{.}$$
 
 Integral-valued argument is checked for
 
-$$x=18\text{,}$$
+$$x=31\text{,}$$
 
-which is used to compute $\Gamma[18]$, the result of which
+which is used to compute $\Gamma\left(31\right)$, the result of which
 is expected to be equal to the integral factorial
 
-$$17 ! = 355,687,428,096,000 \text{.}$$
+$$30 ! = 265,252,859,812,191,058,636,308,480,000,000 \text{.}$$
 
 CI runs on Ubuntu and MacOS using `g++`.
 Correct numerical results are verified on the OS-level
@@ -100,17 +100,19 @@ up to the $33$ decimal digit precision using the built-in
 program `grep`.
 
 The program can also be compiled and executed at this
-[short link](https://godbolt.org/z/E6ad1aT85)
+[short link](https://godbolt.org/z/3PsdxPhWY)
 to [godbolt](https://godbolt.org).
 
-## Standards Conformance Time-Span
+## Long Standards-Conforming Time-Span
 
-The program (with many thanks for contributions
-from [@Beliavsky](https://github.com/ckormanyos/gamma_f77/issues/13))
-compiles with language standards `legacy` (i.e., `Fortran77`) as well as `f2018`.
+The program compiles with language standards `legacy` (i.e., `Fortran77`)
+as well as modern `f2018`. This compatibility was achieved in part
+through contributions from [@Beliavsky](https://github.com/Beliavsky)
+initially proposed in [gamma_f77/issues/13](https://github.com/ckormanyos/gamma_f77/issues/13)
+(with many thanks for these contributions).
 
-This is a standards-conformance time-span of (a remarkable)
-more than 40 years (with hopefully more to come).
+This is a remarkably long standards-conforming time-span exceeding
+40 years - with hopefully more to come!
 
 ## References
 
