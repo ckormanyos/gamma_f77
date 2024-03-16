@@ -6,7 +6,7 @@ gamma_f77
         <img src="https://github.com/ckormanyos/gamma_f77/actions/workflows/gamma_f77.yml/badge.svg" alt="Build Status"></a>
     <a href="https://github.com/ckormanyos/gamma_f77/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-BSL%201.0-blue.svg" alt="Boost Software License 1.0"></a>
-    <a href="https://godbolt.org/z/3PsdxPhWY" alt="godbolt">
+    <a href="https://godbolt.org/z/q6d9bGvr8" alt="godbolt">
         <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
 </p>
 
@@ -100,19 +100,21 @@ up to the $33$ decimal digit precision using the built-in
 program `grep`.
 
 The program can also be compiled and executed at this
-[short link](https://godbolt.org/z/3PsdxPhWY)
+[short link](https://godbolt.org/z/q6d9bGvr8)
 to [godbolt](https://godbolt.org).
 
 ## Long Standards-Conforming Time-Span
 
 The program compiles with language standards `legacy` (i.e., `Fortran77`)
-as well as modern `f2018`. This compatibility was achieved in part
-through contributions from [@Beliavsky](https://github.com/Beliavsky)
-initially proposed in [gamma_f77/issues/13](https://github.com/ckormanyos/gamma_f77/issues/13)
-(with many thanks for these contributions).
+as well as modern `f2018`.
 
-This is a remarkably long standards-conforming time-span exceeding
-40 years - with hopefully more to come!
+This is a remarkably long standards-conforming time-span.
+It exceeds 40 years - with hopefully more to come!
+
+Proving this longevity in this repository was achieved in part
+through contributions from [@Beliavsky](https://github.com/Beliavsky).
+These were initially proposed in [gamma_f77/issues/13](https://github.com/ckormanyos/gamma_f77/issues/13).
+Thank you for these contributions.
 
 ## References
 
