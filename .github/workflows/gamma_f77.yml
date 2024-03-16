@@ -154,40 +154,32 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get install -y valgrind
-      - name: ubuntu-native
+      - name: ubuntu-native-valgrind-run
         run: |
           ${{ matrix.compiler }} -x f77 -std=${{ matrix.standard }} -m64 -fno-exceptions -O1 gamma.f -lgfortran -lquadmath -o gamma.exe
           ls -la gamma.exe
-          valgrind --leak-check=yes --log-file=gamma_valgrind_00.txt ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
-          valgrind --leak-check=yes --log-file=gamma_valgrind_01.txt ./gamma.exe | grep '0.110784755653406415338349971053114E+01'
-          valgrind --leak-check=yes --log-file=gamma_valgrind_02.txt ./gamma.exe | grep '0.271139823924390323650711692085896E+01'
-          valgrind --leak-check=yes --log-file=gamma_valgrind_03.txt ./gamma.exe | grep '0.102754040920152050479188001843206E+02'
-          valgrind --leak-check=yes --log-file=gamma_valgrind_04.txt ./gamma.exe | grep '0.531934282525008207389522379291889E+02'
-          valgrind --leak-check=yes --log-file=gamma_valgrind_05.txt ./gamma.exe | grep '0.350998609824200588801455504140098E+03'
-          valgrind --leak-check=yes --log-file=gamma_valgrind_06.txt ./gamma.exe | grep '0.282509453680418713613816084109635E+04'
-          valgrind --leak-check=yes --log-file=gamma_valgrind_07.txt ./gamma.exe | grep '0.269036719467497675679082571845063E+05'
-          valgrind --leak-check=yes --log-file=gamma_valgrind_08.txt ./gamma.exe | grep '0.296439082102472192334520537379648E+06'
-          valgrind --leak-check=yes --log-file=gamma_valgrind_09.txt ./gamma.exe | grep '0.554521067573633755529159865936434E-01'
+          valgrind --leak-check=yes --log-file=gamma_valgrind_0.txt  ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
+          valgrind --leak-check=yes --log-file=gamma_valgrind_1.txt  ./gamma.exe | grep '0.110784755653406415338349971053114E+01'
+          valgrind --leak-check=yes --log-file=gamma_valgrind_2.txt  ./gamma.exe | grep '0.271139823924390323650711692085896E+01'
+          valgrind --leak-check=yes --log-file=gamma_valgrind_3.txt  ./gamma.exe | grep '0.102754040920152050479188001843206E+02'
+          valgrind --leak-check=yes --log-file=gamma_valgrind_4.txt  ./gamma.exe | grep '0.531934282525008207389522379291889E+02'
+          valgrind --leak-check=yes --log-file=gamma_valgrind_5.txt  ./gamma.exe | grep '0.350998609824200588801455504140098E+03'
+          valgrind --leak-check=yes --log-file=gamma_valgrind_6.txt  ./gamma.exe | grep '0.282509453680418713613816084109635E+04'
+          valgrind --leak-check=yes --log-file=gamma_valgrind_7.txt  ./gamma.exe | grep '0.269036719467497675679082571845063E+05'
+          valgrind --leak-check=yes --log-file=gamma_valgrind_8.txt  ./gamma.exe | grep '0.296439082102472192334520537379648E+06'
+          valgrind --leak-check=yes --log-file=gamma_valgrind_9.txt  ./gamma.exe | grep '0.554521067573633755529159865936434E-01'
           valgrind --leak-check=yes --log-file=gamma_valgrind_10.txt ./gamma.exe | grep '0.265252859812191058636308480000000E+33'
-          grep '0 bytes in 0 blocks' gamma_valgrind_00.txt
-          grep '0 bytes in 0 blocks' gamma_valgrind_01.txt
-          grep '0 bytes in 0 blocks' gamma_valgrind_02.txt
-          grep '0 bytes in 0 blocks' gamma_valgrind_03.txt
-          grep '0 bytes in 0 blocks' gamma_valgrind_04.txt
-          grep '0 bytes in 0 blocks' gamma_valgrind_05.txt
-          grep '0 bytes in 0 blocks' gamma_valgrind_06.txt
-          grep '0 bytes in 0 blocks' gamma_valgrind_07.txt
-          grep '0 bytes in 0 blocks' gamma_valgrind_08.txt
-          grep '0 bytes in 0 blocks' gamma_valgrind_09.txt
-          grep '0 bytes in 0 blocks' gamma_valgrind_10.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_00.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_01.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_02.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_03.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_04.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_05.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_06.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_07.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_08.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_09.txt
-          grep '0 errors from 0 contexts' gamma_valgrind_10.txt
+      - name: ubuntu-native-valgrind-blocks
+        run: |
+          #!/bin/bash
+          for i in {0..10}; do
+            filename="gamma_valgrind_$i.txt"
+            grep '0 bytes in 0 blocks' $filename"
+          done
+      - name: ubuntu-native-valgrind-contexts
+        run: |
+          #!/bin/bash
+          for i in {0..10}; do
+            filename="gamma_valgrind_$i.txt"
+            grep '0 errors from 0 contexts' $filename"
+          done
