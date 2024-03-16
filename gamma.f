@@ -1,6 +1,6 @@
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC80
 C     cd /mnt/c/Users/User/Documents/Ks/PC_Software/Fortran/gamma
-C     Compile with leagcy (FORTRAN77).
+C     Compile with legacy (FORTRAN77).
 C     g++ -x f77 -std=legacy -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
 C
 C     Or compile with modern f2018 conformance.

@@ -1,5 +1,5 @@
 ##############################################################################
-#  Copyright Christopher Kormanyos 2023.
+#  Copyright Christopher Kormanyos 2023 - 2024.
 #  Distributed under the Boost Software License,
 #  Version 1.0. (See accompanying file LICENSE_1_0.txt
 #  or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -22,12 +22,12 @@ jobs:
         standard: [ legacy, f2018 ]
         compiler: [ g++ ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: '0'
       - name: ubuntu-native
         run: |
-          ${{ matrix.compiler }} -x f77 -std=${{ matrix.standard }} -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
+          ${{ matrix.compiler }} -x f77 -std=${{ matrix.standard }} -m64 -fno-exceptions -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
           ls -la gamma.exe
           ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
           ./gamma.exe | grep '0.110784755653406415338349971053114E+01'
@@ -40,6 +40,35 @@ jobs:
           ./gamma.exe | grep '0.296439082102472192334520537379648E+06'
           ./gamma.exe | grep '0.554521067573633755529159865936434E-01'
           ./gamma.exe | grep '0.265252859812191058636308480000000E+33'
+  ubuntu-native-asan:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      fail-fast: false
+      matrix:
+        standard: [ legacy, f2018 ]
+        compiler: [ g++ ]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+      - name: ubuntu-native
+        run: |
+          ${{ matrix.compiler }} -x f77 -std=${{ matrix.standard }} -m64 -fno-exceptions -fsanitize=address -fsanitize=leak -O1 gamma.f -lgfortran -lquadmath -o gamma.exe
+          ls -la gamma.exe
+          setarch `uname -m` -R ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
+          setarch `uname -m` -R ./gamma.exe | grep '0.110784755653406415338349971053114E+01'
+          setarch `uname -m` -R ./gamma.exe | grep '0.271139823924390323650711692085896E+01'
+          setarch `uname -m` -R ./gamma.exe | grep '0.102754040920152050479188001843206E+02'
+          setarch `uname -m` -R ./gamma.exe | grep '0.531934282525008207389522379291889E+02'
+          setarch `uname -m` -R ./gamma.exe | grep '0.350998609824200588801455504140098E+03'
+          setarch `uname -m` -R ./gamma.exe | grep '0.282509453680418713613816084109635E+04'
+          setarch `uname -m` -R ./gamma.exe | grep '0.269036719467497675679082571845063E+05'
+          setarch `uname -m` -R ./gamma.exe | grep '0.296439082102472192334520537379648E+06'
+          setarch `uname -m` -R ./gamma.exe | grep '0.554521067573633755529159865936434E-01'
+          setarch `uname -m` -R ./gamma.exe | grep '0.265252859812191058636308480000000E+33'
   macos-native:
     runs-on: macos-latest
     defaults:
@@ -51,21 +80,21 @@ jobs:
         compiler: [ g++-13 ]
         standard: [ legacy, f2018 ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: '0'
       - name: update-tools
-        run: brew reinstall gcc
+        run: brew reinstall gcc@13
       - name: brew-installed-gcc-path
         run: |
-          PATH="/usr/local/Cellar/gcc/13.1.0/bin:$PATH"
+          PATH="/usr/local/Cellar/gcc/13.2.0/bin:$PATH"
       - name: g++-version
         run: |
           echo Query the g++ version
           ${{ matrix.compiler }} -v
       - name: macos-native
         run: |
-          ${{ matrix.compiler }} -x f77 -std=${{ matrix.standard }} -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
+          ${{ matrix.compiler }} -x f77 -std=${{ matrix.standard }} -m64 -fno-exceptions -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
           ls -la gamma.exe
           ./gamma.exe | grep '0.947395504039301942134227647281424E+00'
           ./gamma.exe | grep '0.110784755653406415338349971053114E+01'
