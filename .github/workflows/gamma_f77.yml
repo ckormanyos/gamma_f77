@@ -174,12 +174,12 @@ jobs:
           #!/bin/bash
           for i in {0..10}; do
             filename="gamma_valgrind_$i.txt"
-            grep '0 bytes in 0 blocks' $filename"
+            grep '0 bytes in 0 blocks' $filename
           done
       - name: ubuntu-native-valgrind-contexts
         run: |
           #!/bin/bash
           for i in {0..10}; do
             filename="gamma_valgrind_$i.txt"
-            grep '0 errors from 0 contexts' $filename"
+            grep '0 errors from 0 contexts' $filename
           done
