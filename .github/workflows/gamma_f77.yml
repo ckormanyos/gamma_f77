@@ -169,17 +169,11 @@ jobs:
           valgrind --leak-check=yes --log-file=gamma_valgrind_8.txt  ./gamma.exe | grep '0.296439082102472192334520537379648E+06'
           valgrind --leak-check=yes --log-file=gamma_valgrind_9.txt  ./gamma.exe | grep '0.554521067573633755529159865936434E-01'
           valgrind --leak-check=yes --log-file=gamma_valgrind_10.txt ./gamma.exe | grep '0.265252859812191058636308480000000E+33'
-      - name: ubuntu-native-valgrind-blocks
+      - name: ubuntu-native-valgrind-check
         run: |
           #!/bin/bash
           for i in {0..10}; do
             filename="gamma_valgrind_$i.txt"
             grep '0 bytes in 0 blocks' $filename
-          done
-      - name: ubuntu-native-valgrind-contexts
-        run: |
-          #!/bin/bash
-          for i in {0..10}; do
-            filename="gamma_valgrind_$i.txt"
             grep '0 errors from 0 contexts' $filename
           done

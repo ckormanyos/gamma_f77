@@ -1,4 +1,10 @@
 CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC80
+C
+C     Copyright Christopher Kormanyos 1987 - 2024.
+C     Distributed under the Boost Software License,
+C     Version 1.0. (See accompanying file LICENSE_1_0.txt
+C     or copy at http://www.boost.org/LICENSE_1_0.txt)
+C
 C     cd /mnt/c/Users/User/Documents/Ks/PC_Software/Fortran/gamma
 C     Compile with legacy (FORTRAN77).
 C     g++ -x f77 -std=legacy -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
@@ -152,7 +158,7 @@ C
       CALL TGAMMA(X, GA)
       WRITE(6, "(E44.33)") GA
 
-      END
+      END PROGRAM GAMMA
 C
 C     Program Output:
 C
