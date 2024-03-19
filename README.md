@@ -6,7 +6,7 @@ gamma_f77
         <img src="https://github.com/ckormanyos/gamma_f77/actions/workflows/gamma_f77.yml/badge.svg" alt="Build Status"></a>
     <a href="https://github.com/ckormanyos/gamma_f77/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-BSL%201.0-blue.svg" alt="Boost Software License 1.0"></a>
-    <a href="https://godbolt.org/z/q6d9bGvr8" alt="godbolt">
+    <a href="https://godbolt.org/z/Yb8rnEdsG" alt="godbolt">
         <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
 </p>
 
@@ -100,7 +100,7 @@ up to the $33$ decimal digit precision using the built-in
 program `grep`.
 
 The program can also be compiled and executed at this
-[short link](https://godbolt.org/z/q6d9bGvr8)
+[short link](https://godbolt.org/z/Yb8rnEdsG)
 to [godbolt](https://godbolt.org).
 
 ## Long Standards-Conforming Time-Span
