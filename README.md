@@ -10,8 +10,8 @@ gamma_f77
         <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
 </p>
 
-gamma_f77 implements the real-valued Gamma function in quadruple-precision using
-the classic `Fortran77` language.
+`ckormanyos/gamma_f77` implements the real-valued Gamma function
+in quadruple-precision using the classic `Fortran77` language.
 
 ## Mathematical Background
 
@@ -34,6 +34,9 @@ Reccurence is given by
 $$ \Gamma(z+1)= z\Gamma(z)\text{.}$$
 
 ## Calculation Method
+
+Let's look at some background information regarding
+computations of the real-valued gamma function.
 
 The real-valued gamma function, $\Gamma\left(x\right)$
 can be readily calculated using a series expansion
@@ -61,7 +64,7 @@ See also
 for brief mathematical insight into the fascinating
 series expansion of the reciprocal of the gamma function near the origin.
 
-## Quadruple-Precision Implementation
+## Expanded Quadruple-Precision Implementation
 
 In this repository, the series calculation mentioned above has been
 extended to quadruple-precision.
