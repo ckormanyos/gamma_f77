@@ -10,8 +10,8 @@ gamma_f77
         <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
 </p>
 
-gamma_f77 implements the real-valued Gamma function in quadruple-precision using
-the classic `Fortran77` language.
+`ckormanyos/gamma_f77` implements the real-valued Gamma function
+in quadruple-precision using the classic `Fortran77` language.
 
 ## Mathematical Background
 
@@ -48,6 +48,8 @@ near the origin
 
 $$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 
+Let's look at some background information.
+
 In the subroutine `GAMMA` in Sect. 3.1.5 on pages 49-50 of [1],
 the coefficients $a_{k}$ are given to $26$ terms. These are used
 in a series calculation of $\Gamma\left(x\right)$ for real-valued $x$
@@ -61,7 +63,7 @@ See also
 for brief mathematical insight into the fascinating
 series expansion of the reciprocal of the gamma function near the origin.
 
-## Quadruple-Precision Implementation
+## Expanded Quadruple-Precision Implementation
 
 In this repository, the series calculation mentioned above has been
 extended to quadruple-precision.
