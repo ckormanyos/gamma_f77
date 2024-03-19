@@ -35,6 +35,9 @@ $$ \Gamma(z+1)= z\Gamma(z)\text{.}$$
 
 ## Calculation Method
 
+Let's look at some background information regarding
+computations of the real-valued gamma function.
+
 The real-valued gamma function, $\Gamma\left(x\right)$
 can be readily calculated using a series expansion
 for its reciprocal near the origin.
@@ -47,8 +50,6 @@ Consider the series expansion of the reciprocal of the gamma function
 near the origin
 
 $$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
-
-Let's look at some background information.
 
 In the subroutine `GAMMA` in Sect. 3.1.5 on pages 49-50 of [1],
 the coefficients $a_{k}$ are given to $26$ terms. These are used
