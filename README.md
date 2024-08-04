@@ -6,7 +6,7 @@ gamma_f77
         <img src="https://github.com/ckormanyos/gamma_f77/actions/workflows/gamma_f77.yml/badge.svg" alt="Build Status"></a>
     <a href="https://github.com/ckormanyos/gamma_f77/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-BSL%201.0-blue.svg" alt="Boost Software License 1.0"></a>
-    <a href="https://godbolt.org/z/Yb8rnEdsG" alt="godbolt">
+    <a href="https://godbolt.org/z/xPWhqab9z" alt="godbolt">
         <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green" /></a>
 </p>
 
@@ -18,20 +18,20 @@ in quadruple-precision using the classic `Fortran77` language.
 The gamma function $\Gamma\left(z\right)$ is the complex-valued extension
 of the well-known integer factorial function.
 
-For $\mathbb{Re}\left(z\right) > 0$, $\Gamma(z)$ is defined by
+For $\mathbb{Re}\left(z\right) > 0$, $\Gamma\left(z\right)$ is defined by
 
-$$\Gamma(z)=\int_{0}^{\infty}t^{z-1} e^{t} dt\text{,}$$
+$$\Gamma\left(z\right)=\int_{0}^{\infty}t^{z-1} e^{t} dt\text{,}$$
 
-$\Gamma(z)$ has a value of complex-infinity at the origin and also
+$\Gamma\left(z\right)$ has a value of complex-infinity at the origin and also
 has poles at integer values along the negative real axis.
 
 Reflection is given by
 
-$$ \Gamma(-z)= \frac{\pi}{z\Gamma(z)\sin(\pi z)}\text{.}$$
+$$ \Gamma(-z)= \frac{\pi}{z\Gamma\left(z\right)\sin\left(\pi z\right)}\text{.}$$
 
 Reccurence is given by
 
-$$ \Gamma(z+1)= z\Gamma(z)\text{.}$$
+$$ \Gamma\left(z+1\right)= z\Gamma\left(z\right)\text{.}$$
 
 ## Calculation Method
 
@@ -49,7 +49,7 @@ for negative argument is obtaind via reflection.
 Consider the series expansion of the reciprocal of the gamma function
 near the origin
 
-$$ \frac{1}{\Gamma(z)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
+$$ \frac{1}{\Gamma\left(z\right)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 
 In the subroutine `GAMMA` in Sect. 3.1.5 on pages 49-50 of [1],
 the coefficients $a_{k}$ are given to $26$ terms. These are used
@@ -103,13 +103,13 @@ up to the $33$ decimal digit precision using the built-in
 program `grep`.
 
 The program can also be compiled and executed at this
-[short link](https://godbolt.org/z/Yb8rnEdsG)
+[short link](https://godbolt.org/z/xPWhqab9z)
 to [godbolt](https://godbolt.org).
 
 ## Long Standards-Conforming Time-Span
 
 The program compiles with language standards `legacy` (i.e., `Fortran77`)
-as well as modern `f2018`.
+as well as all the way up to modern `f2023`.
 
 This is a remarkably long standards-conforming time-span.
 It exceeds 40 years - with hopefully more to come!
