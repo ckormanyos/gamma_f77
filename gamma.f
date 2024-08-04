@@ -9,8 +9,10 @@ C     cd /mnt/c/Users/User/Documents/Ks/PC_Software/Fortran/gamma
 C     Compile with legacy (FORTRAN77).
 C     g++ -x f77 -std=legacy -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
 C
-C     Or compile with modern f2018 conformance.
-C     g++ -x f77 -std=f2018 -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
+C     Or compile with modern f2023 conformance.
+C     g++ -x f77 -std=f2023 -O2 gamma.f -lgfortran -lquadmath -o gamma.exe
+C
+C     See also short link to GodBolt at: https://godbolt.org/z/xPWhqab9z
 C
 C     TGAMMA evaluates the Gamma function.
 C
