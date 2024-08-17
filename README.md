@@ -4,6 +4,8 @@ gamma_f77
 <p align="center">
     <a href="https://github.com/ckormanyos/gamma_f77/actions">
         <img src="https://github.com/ckormanyos/gamma_f77/actions/workflows/gamma_f77.yml/badge.svg" alt="Build Status"></a>
+    <a href="https://codecov.io/gh/ckormanyos/gamma_f77" > 
+        <img src="https://codecov.io/gh/ckormanyos/gamma_f77/graph/badge.svg?token=rn9o8UoMRm"/></a>
     <a href="https://github.com/ckormanyos/gamma_f77/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-BSL%201.0-blue.svg" alt="Boost Software License 1.0"></a>
     <a href="https://godbolt.org/z/xPWhqab9z" alt="godbolt">
@@ -78,6 +80,19 @@ These higher-precision coefficients can be found in the table `G` in the
 The implementation uses the `gfortran` dialect that is available in `g++`.
 
 ## Test-Run and CI
+
+### Continuous Integration
+
+Continuous integration (CI) runs with gfortran using GHA ubuntu-latest
+and macos-latest runners. CI exercises both building `gamma` as well as running
+several straightforward `gamma` test cases.
+
+A (growing) test suite is present in both the build workflows
+as well as in [`cover.sh`](./.gcov/make/cover.sh).
+These tests are used in CI to verify the expected functionality and also
+to obtain [code coverage results](https://app.codecov.io/gh/ckormanyos/gamma_f77).
+
+### Testing
 
 The test-run computes $9$ gamma values $\Gamma\left(x\right)$
 for positive, real-valued arguments at
