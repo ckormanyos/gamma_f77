@@ -79,6 +79,12 @@ These higher-precision coefficients can be found in the table `G` in the
 
 The implementation uses the `gfortran` dialect that is available in `g++`.
 
+A command line to build the program is shown below. It compiles and links the executable program `gamma`.
+
+```sh
+ g++ -x f77 -std=legacy -O2 gamma.f -lgfortran -lquadmath -o gamma
+```
+
 ## Test-Run and CI
 
 ### Continuous Integration
