@@ -73,7 +73,7 @@ extended to quadruple-precision.
 
 The coefficients $a_{k}$ have been expanded (via computer algebra)
 to $48$ terms having $51$ decimal digits of precision. With this coefficient list,
-it is possible to reach the quadruple-precision.
+it is possible to reach quadruple-precision, having approximately $34$ decimal digits of precision.
 These higher-precision coefficients can be found in the table `G` in the
 [source code](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
 
