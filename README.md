@@ -43,7 +43,7 @@ computations of the real-valued gamma function.
 The real-valued gamma function, $\Gamma\left(x\right)$
 can be readily calculated using a series expansion
 for its reciprocal near the origin.
-Large arguments valued greater than one use recurrence.
+Large arguments valued greater than $1$ use recurrence.
 For negative argument, the function value for the corresponding
 positive-valued argument is first calculated and the value
 for negative argument is obtaind via reflection.
