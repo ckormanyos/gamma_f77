@@ -56,7 +56,7 @@ $$ \frac{1}{\Gamma\left(z\right)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 In the subroutine `GAMMA` in Sect. 3.1.5 on pages 49-50 of [1],
 the coefficients $a_{k}$ are given to $26$ terms. These are used
 in a series calculation of $\Gamma\left(x\right)$ for real-valued $x$
-using `Fortran77`'s double-precision data type `REAL*8`.
+using `Fortran`'s built-in quadruple-precision data type.
 Further information on this coefficient expansion can be found
 in Sect. 6.1.34 of [2], in Sect. 5.7.1 of [3]
 and in additional references therein.
@@ -73,7 +73,7 @@ extended to quadruple-precision.
 
 The coefficients $a_{k}$ have been expanded (via computer algebra)
 to $48$ terms having $51$ decimal digits of precision. With this coefficient list,
-it is possible to reach the quadruple-precision of `Fortran77`'s data type `REAL*16`.
+it is possible to reach the quadruple-precision.
 These higher-precision coefficients can be found in the table `G` in the
 [source code](https://github.com/ckormanyos/gamma_f77/blob/main/gamma.f).
 
