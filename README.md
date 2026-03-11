@@ -54,9 +54,9 @@ near the origin
 $$ \frac{1}{\Gamma\left(z\right)}\approx \sum_{k=1}^{n} a^{k} z^{k}\text{.}$$
 
 In the subroutine `GAMMA` in Sect. 3.1.5 on pages 49-50 of [1],
-the coefficients $a_{k}$ are given to $26$ terms. These are used
-in a series calculation of $\Gamma\left(x\right)$ for real-valued $x$
-using `Fortran`'s built-in quadruple-precision data type.
+the coefficients $a_{k}$ are given to $26$ terms. In that work,
+these are used in a series calculation of $\Gamma\left(x\right)$ for real-valued $x$
+using `Fortran`'s built-in double-precision data type.
 Further information on this coefficient expansion can be found
 in Sect. 6.1.34 of [2], in Sect. 5.7.1 of [3]
 and in additional references therein.
