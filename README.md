@@ -89,7 +89,7 @@ A command line to build the program is shown below. It compiles and links the ex
 
 ### Continuous Integration
 
-Continuous integration (CI) runs with gfortran using GHA ubuntu-latest
+Continuous integration (CI) runs with `gfortran` using GHA ubuntu-latest
 and macos-latest runners. CI exercises both building `gamma` as well as running
 several straightforward `gamma` test cases.
 
